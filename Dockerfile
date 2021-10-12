@@ -16,7 +16,8 @@ RUN                                                                             
             wget;                                                                                                       \
     curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
 
-# # passwordless sudo 😲🚪⚡💀
-# RUN                                                                                                                     \
-#     echo 'abc ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers.d/00-abc-nopasswd;                                                \
-#     chmod 0440 /etc/sudoers.d/00-abc-nopasswd;
+# add local files
+COPY /root /
+
+# ports and volumes
+EXPOSE 8443
