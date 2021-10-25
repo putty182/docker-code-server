@@ -1,4 +1,4 @@
-FROM lscr.io/linuxserver/code-server
+FROM lscr.io/linuxserver/code-server:3.12.0
 
 # things to install
 RUN                                                                                                                     \
