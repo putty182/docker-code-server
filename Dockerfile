@@ -1,6 +1,6 @@
 FROM lscr.io/linuxserver/code-server:3.12.0
 
-ENV YQ_VERSION=v4.13.5
+ENV YQ_VERSION=v4.14.2
 
 # things to install
 RUN                                                                                                                     \
