@@ -6,4 +6,4 @@ chmod 0440 /etc/sudoers.d/00-abc-nopasswd
 
 # workspace dir only (other perms can be done post-launch?)
 mkdir -p /config/.config /config/workspace
-chown abc:abc /config/.config /config/workspace
+chown abc:abc /config/.config /config/workspace /config/.config/gcloud/logs/*
