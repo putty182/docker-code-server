@@ -12,6 +12,7 @@ RUN                                                                             
         apt-get install -qq -y                                                                                          \
             google-cloud-sdk                                                                                            \
             htop                                                                                                        \
+            python                                                                                                      \
             kubectl                                                                                                     \
             mosh                                                                                                        \
             vim                                                                                                         \
