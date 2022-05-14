@@ -11,6 +11,7 @@ RUN                                                                             
     apt-get update -qq &&                                                                                               \
         apt-get install -qq -y                                                                                          \
             google-cloud-sdk                                                                                            \
+            google-cloud-sdk-gke-gcloud-auth-plugin                                                                     \
             htop                                                                                                        \
             python                                                                                                      \
             kubectl                                                                                                     \
