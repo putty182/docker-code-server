@@ -25,7 +25,7 @@ RUN                                                                             
 # add local files
 COPY /root /
 
-# passwordless sudo (risky)
+# passwordless sudo 😲🚪⚡💀
 RUN                                                                     \
     echo 'abc ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers.d/00-abc-nopasswd \
     chmod 0440 /etc/sudoers.d/00-abc-nopasswd
