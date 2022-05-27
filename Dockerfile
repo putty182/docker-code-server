@@ -25,5 +25,16 @@ RUN                                                                             
 # add local files
 COPY /root /
 
+# passwordless sudo (risky)
+RUN                                                                     \
+    echo 'abc ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers.d/00-abc-nopasswd \
+    chmod 0440 /etc/sudoers.d/00-abc-nopasswd
+
+# user switch
+USER abc
+
+# homebrew install
+RUN /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
 # ports and volumes
 EXPOSE 8443
