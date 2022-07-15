@@ -27,7 +27,7 @@ COPY /root /
 
 # passwordless sudo 😲🚪⚡💀
 RUN                                                                     \
-    echo 'abc ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers.d/00-abc-nopasswd \
+    echo 'abc ALL=(ALL:ALL) NOPASSWD: ALL' > /etc/sudoers.d/00-abc-nopasswd \
     chmod 0440 /etc/sudoers.d/00-abc-nopasswd
 
 # user switch
