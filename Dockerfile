@@ -32,9 +32,6 @@ RUN                                                                     \
     mkdir /config; \
     chown abc:abc /config
 
-# user switch
-USER abc
-
 # homebrew install
 RUN /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
