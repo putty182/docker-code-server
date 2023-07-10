@@ -15,6 +15,7 @@ RUN                                                                             
             htop                                                                                                        \
             python3                                                                                                     \
             kubectl                                                                                                     \
+            man-db                                                                                                      \
             mosh                                                                                                        \
             vim                                                                                                         \
             wget                                                                                                        \
@@ -39,8 +40,6 @@ RUN                                                                             
     chmod 0440 /etc/sudoers.d/00-abc-nopasswd;                                                                          \
     mkdir /config;                                                                                                      \
     chown abc:abc /config;
-
-RUN unminimize <<< 'y'
 
 # ports and volumes
 EXPOSE 8443
