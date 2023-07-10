@@ -30,6 +30,10 @@ RUN                                                                             
         tar -zxf - -C /usr/bin cmctl;                                                                                   \
                                                                                                                         \
     NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)";   \
+    (echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> /config/.profile;                          \
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)";                                                             \
+                                                                                                                        \
+    brew install megatools;                                                                                             \
                                                                                                                         \
     echo 'abc ALL=(ALL) NOPASSWD:ALL' > /etc/sudoers.d/00-abc-nopasswd;                                                 \
     chmod 0440 /etc/sudoers.d/00-abc-nopasswd;                                                                          \
