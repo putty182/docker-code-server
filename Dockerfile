@@ -40,5 +40,7 @@ RUN                                                                             
     mkdir /config;                                                                                                      \
     chown abc:abc /config;
 
+RUN unminimize <<< 'y'
+
 # ports and volumes
 EXPOSE 8443
