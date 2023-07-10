@@ -8,6 +8,7 @@ RUN                                                                             
         > /usr/share/keyrings/cloud.google.gpg;                                                                         \
                                                                                                                         \
     apt-get update -qq &&                                                                                               \
+        apt-get upgrade -qq -y &&                                                                                       \
         apt-get install -qq -y                                                                                          \
             google-cloud-sdk                                                                                            \
             google-cloud-sdk-gke-gcloud-auth-plugin                                                                     \
@@ -16,7 +17,8 @@ RUN                                                                             
             kubectl                                                                                                     \
             mosh                                                                                                        \
             vim                                                                                                         \
-            wget;                                                                                                       \
+            wget                                                                                                        \
+            build-essential;                                                                                            \
                                                                                                                         \
     curl -s https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3                                         \
         | bash;                                                                                                         \
@@ -26,6 +28,8 @@ RUN                                                                             
                                                                                                                         \
     wget 'https://github.com/cert-manager/cert-manager/releases/latest/download/cmctl-linux-amd64.tar.gz' -O - |        \
         tar -zxf - -C /usr/bin cmctl;                                                                                   \
+                                                                                                                        \
+    NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)";   \
                                                                                                                         \
     echo 'abc ALL=(ALL) NOPASSWD:ALL' > /etc/sudoers.d/00-abc-nopasswd;                                                 \
     chmod 0440 /etc/sudoers.d/00-abc-nopasswd;                                                                          \
