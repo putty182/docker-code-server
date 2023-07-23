@@ -1,11 +1,20 @@
 FROM ghcr.io/linuxserver/code-server:latest
 
 RUN                                                                                                                     \
-    echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main"    \
-        > /etc/apt/sources.list.d/google-cloud-sdk.list;                                                                \
+    apt-get update -qq &&                                                                                               \
+        apt-get upgrade -qq -y &&                                                                                       \
+        apt-get install -qq -y                                                                                          \
+            apt-transport-https                                                                                         \
+            ca-certificates                                                                                             \
+            gnupg                                                                                                       \
+            curl                                                                                                        \
+            sudo;                                                                                                       \
                                                                                                                         \
-    curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg                                                       \
-        > /usr/share/keyrings/cloud.google.gpg;                                                                         \
+    echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main"    \
+        | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list;                                                    \
+                                                                                                                        \
+    curl https://packages.cloud.google.com/apt/doc/apt-key.gpg                                                          \
+        | sudo apt-key --keyring /usr/share/keyrings/cloud.google.gpg add -;                                            \
                                                                                                                         \
     apt-get update -qq &&                                                                                               \
         apt-get upgrade -qq -y &&                                                                                       \
@@ -38,7 +47,7 @@ RUN                                                                             
                                                                                                                         \
     echo 'abc ALL=(ALL) NOPASSWD:ALL' > /etc/sudoers.d/00-abc-nopasswd;                                                 \
     chmod 0440 /etc/sudoers.d/00-abc-nopasswd;                                                                          \
-    mkdir /config;                                                                                                      \
+    mkdir -p /config;                                                                                                   \
     chown abc:abc /config;
 
 # ports and volumes
